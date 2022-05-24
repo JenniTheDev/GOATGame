@@ -13,6 +13,7 @@ public class GoatMusicPlayer : MonoBehaviour
 
     public void PlayGoatSound()
     {
+        Debug.Log("play sound");
         var num = PickGoatSound();
         audioPlayer.clip = goatSoundList[num];
         audioPlayer.Play();
