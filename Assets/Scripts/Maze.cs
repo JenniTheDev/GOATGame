@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Maze
 {
@@ -13,7 +12,7 @@ public class Maze
         _rows = rows;
         _cols = cols;
 
-        cells = new Cell[_rows, _cols];
+        cells = new Cell[_cols, _rows];
 
         for (int i = 0; i < _cols; i++)
         {

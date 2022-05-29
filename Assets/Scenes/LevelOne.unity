@@ -319,5 +319,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rows: 11
-  cols: 11
+  cols: 17
   cellPrefab: {fileID: 655410671452507885, guid: c2a932384c48f6e4bb4d977aafc21d9f, type: 3}
