@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Variables;
 using UnityEngine;
 
 public class MazeGenerator : MonoBehaviour
 {
-    [SerializeField] private int rows = 11;
-    [SerializeField] private int cols = 11;
+    [SerializeField] private IntVariable rows;
+    [SerializeField] private IntVariable cols;
     [SerializeField] private GameObject cellPrefab;
 
     private Stack<Cell> stack = new Stack<Cell>();
@@ -23,7 +24,7 @@ public class MazeGenerator : MonoBehaviour
         private set;
     } = false;
 
-    private void Start()
+    public void StartMazeGeneration()
     {
         int startX = -cols / 2;
         int startY = -rows / 2;
@@ -50,7 +51,7 @@ public class MazeGenerator : MonoBehaviour
         CreateNewMaze();
     }
 
-    public void CreateNewMaze()
+    private void CreateNewMaze()
     {
         // Remove the left wall from
         // the bottom left cell.
