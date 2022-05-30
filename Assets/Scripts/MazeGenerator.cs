@@ -137,8 +137,8 @@ public class MazeGenerator : MonoBehaviour
         while (!flag)
         {
             flag = GenerateStep();
-            //yield return null;
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
+            // yield return new WaitForSeconds(0.01f);
         }
         MazeGenerationCompleted = true;
     }
