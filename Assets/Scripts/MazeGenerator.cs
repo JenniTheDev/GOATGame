@@ -7,6 +7,8 @@ public class MazeGenerator : MonoBehaviour
 {
     [SerializeField] private IntVariable rows;
     [SerializeField] private IntVariable cols;
+    [SerializeField] private IntVariable startY;
+    [SerializeField] private IntVariable startX;
     [SerializeField] private GameObject cellPrefab;
 
     private Stack<Cell> stack = new Stack<Cell>();
@@ -26,8 +28,8 @@ public class MazeGenerator : MonoBehaviour
 
     public void StartMazeGeneration()
     {
-        int startX = -cols / 2;
-        int startY = -rows / 2;
+        startX = new IntVariable(-cols / 2);
+        startY = new IntVariable(-rows / 2);
 
         Maze = new Maze(rows, cols);
         mazeCells = new MazeCell[cols, rows];
