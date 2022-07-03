@@ -230,6 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 11400000, guid: 36f0b8b6f98b9754eacee775d54063ec, type: 2}
   mazeGenerator: {fileID: 1445612534}
+  onGameStateChange: {fileID: 0}
+  currentState: 4
 --- !u!4 &51326051
 Transform:
   m_ObjectHideFlags: 0
@@ -375,7 +377,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: {fileID: 11400000, guid: 33f1ec9864cb20947bb9590a777e2f63, type: 2}
   cols: {fileID: 11400000, guid: 860cce62a75216c49ba747431709203d, type: 2}
+  startY: {fileID: 11400000, guid: 7c6501446decab44a8cab10a72439d4f, type: 2}
+  startX: {fileID: 11400000, guid: a6de136412ebd92498974051f32139e2, type: 2}
   cellPrefab: {fileID: 655410671452507885, guid: c2a932384c48f6e4bb4d977aafc21d9f, type: 3}
+  gameManager: {fileID: 0}
+  rowIncrease: 3
+  colIncrease: 4
 --- !u!1001 &268016541652945186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 268016540567207858, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}
       propertyPath: m_Name
       value: GoatPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 268016540567207858, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}

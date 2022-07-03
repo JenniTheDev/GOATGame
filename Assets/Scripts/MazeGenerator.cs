@@ -10,21 +10,17 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] private IntVariable startY;
     [SerializeField] private IntVariable startX;
     [SerializeField] private GameObject cellPrefab;
+    [SerializeField] private GameManager gameManager;
+
+    [SerializeField] private int rowIncrease = 3;
+    [SerializeField] private int colIncrease = 4;
 
     private Stack<Cell> stack = new Stack<Cell>();
     public MazeCell[,] mazeCells;
 
-    public Maze Maze
-    {
-        get;
-        private set;
-    }
+    public Maze Maze { get; private set; }
 
-    public bool MazeGenerationCompleted
-    {
-        get;
-        private set;
-    } = false;
+    public bool MazeGenerationCompleted { get; private set; } = false;
 
     public void StartMazeGeneration()
     {
@@ -144,5 +140,13 @@ public class MazeGenerator : MonoBehaviour
             // yield return new WaitForSeconds(0.01f);
         }
         MazeGenerationCompleted = true;
+        // event that maze is finished
+    }
+
+    public void IncreaseMaze()
+    {
+        rows.IntValue = rowIncrease;
+        cols.IntValue = colIncrease;
+        StartMazeGeneration();
     }
 }

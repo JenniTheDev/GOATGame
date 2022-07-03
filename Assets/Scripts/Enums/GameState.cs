@@ -1,7 +1,8 @@
 public enum GameState
 {
-    None,
+    Loading,
     Playing,
     Paused,
     GameOver,
+    None,
 }
