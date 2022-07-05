@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Variables;
 using UnityEngine;
+using SOEvents.Events;
+using SOEvents.Listeners;
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] private IntVariable startX;
     [SerializeField] private GameObject cellPrefab;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameEventGameState onGameStateChange;
+    // [SerializeField] private GameEventListenerGameState onGameStateChange;
 
     [SerializeField] private int rowIncrease = 3;
     [SerializeField] private int colIncrease = 4;
@@ -140,7 +144,7 @@ public class MazeGenerator : MonoBehaviour
             // yield return new WaitForSeconds(0.01f);
         }
         MazeGenerationCompleted = true;
-        // event that maze is finished
+        onGameStateChange.Raise(GameState.Playing);
     }
 
     public void IncreaseMaze()
