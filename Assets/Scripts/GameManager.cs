@@ -9,12 +9,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private IntVariable currentLevel;
     [SerializeField] private MazeGenerator mazeGenerator;
     [SerializeField] private GameEventGameState onGameStateChange;
+    [SerializeField] private GameStateController controller;
 
     public IntVariable CurrentLevel
     { get { return this.currentLevel; } }
 
     public void Awake()
     {
+        controller.OnGameStateChanged += OnGameStateChanged;
+        onGameStateChange.Raise(GameState.Loading);
+        Console.WriteLine("Game Loading");
     }
 
     public void LoadGame()
@@ -36,5 +40,13 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+    }
+
+    private void OnGameStateChanged(GameState toState)
+    {
+        if (toState == GameState.Playing)
+        {
+            Console.WriteLine("Game start playing");
+        }
     }
 }

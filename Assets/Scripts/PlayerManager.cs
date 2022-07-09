@@ -1,4 +1,5 @@
 using SOEvents.Listeners;
+using System;
 using UnityEngine;
 using Variables;
 
@@ -18,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (toState == GameState.Playing)
         {
+            Console.WriteLine("Spawning Player");
             GetStartLocation();
             SpawnAtStart();
         }

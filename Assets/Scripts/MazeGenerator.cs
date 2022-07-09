@@ -4,6 +4,7 @@ using Variables;
 using UnityEngine;
 using SOEvents.Events;
 using SOEvents.Listeners;
+using System;
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] private GameObject cellPrefab;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameStateController controller;
+    [SerializeField] private GameEventGameState gameEventGameState;
 
     [SerializeField] private int rowIncrease = 3;
     [SerializeField] private int colIncrease = 4;
@@ -34,6 +36,7 @@ public class MazeGenerator : MonoBehaviour
     {
         if (toState == GameState.Loading)
         {
+            Console.WriteLine("Starting Maze Generation.");
             StartMazeGeneration();
         }
         else if (toState == GameState.Playing)
@@ -130,7 +133,7 @@ public class MazeGenerator : MonoBehaviour
             var index = 0;
             if (neighbours.Count > 1)
             {
-                index = Random.Range(0, neighbours.Count);
+                index = UnityEngine.Random.Range(0, neighbours.Count);
             }
             var item = neighbours[index];
             Cell neighbour = item.Item2;
@@ -159,7 +162,7 @@ public class MazeGenerator : MonoBehaviour
             // yield return new WaitForSeconds(0.01f);
         }
         MazeGenerationCompleted = true;
-        controller.OnGameStateChanged
+        gameEventGameState.Raise(GameState.Playing);
     }
 
     public void IncreaseMaze()
