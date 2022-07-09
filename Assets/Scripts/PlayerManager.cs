@@ -4,12 +4,25 @@ using Variables;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private GameEventListenerGameState onGameStateChangeListener;
+    [SerializeField] private GameStateController controller;
     [SerializeField] private GameObject player;
     [SerializeField] private IntVariable startX;
     [SerializeField] private IntVariable startY;
 
-    // How do I make the listener do this method on the game state change to playing?
+    public void Start()
+    {
+        controller.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnGameStateChanged(GameState toState)
+    {
+        if (toState == GameState.Playing)
+        {
+            GetStartLocation();
+            SpawnAtStart();
+        }
+    }
+
     private void SpawnAtStart()
     {
         Vector2 startPoint;
