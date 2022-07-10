@@ -209,8 +209,9 @@ GameObject:
   m_Component:
   - component: {fileID: 51326051}
   - component: {fileID: 51326050}
+  - component: {fileID: 51326052}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 11400000, guid: 36f0b8b6f98b9754eacee775d54063ec, type: 2}
   mazeGenerator: {fileID: 1445612534}
-  onGameStateChange: {fileID: 11400000, guid: fe36da3d638882f4e94adb06c58c6c16, type: 2}
   controller: {fileID: 11400000, guid: e60887b5ea70ebd46bbf872096e90f7a, type: 2}
 --- !u!4 &51326051
 Transform:
@@ -247,18 +247,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &140442723 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 268016540567207858, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}
-  m_PrefabInstance: {fileID: 268016541652945186}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &140442729
+--- !u!114 &51326052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140442723}
+  m_GameObject: {fileID: 51326049}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22ea6029b3d54f4d9de3a67c49686fb, type: 3}
@@ -268,6 +263,11 @@ MonoBehaviour:
   player: {fileID: 140442723}
   startX: {fileID: 11400000, guid: a6de136412ebd92498974051f32139e2, type: 2}
   startY: {fileID: 11400000, guid: 7c6501446decab44a8cab10a72439d4f, type: 2}
+--- !u!1 &140442723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 268016540567207858, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}
+  m_PrefabInstance: {fileID: 268016541652945186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +403,6 @@ MonoBehaviour:
   cellPrefab: {fileID: 655410671452507885, guid: c2a932384c48f6e4bb4d977aafc21d9f, type: 3}
   gameManager: {fileID: 51326050}
   controller: {fileID: 11400000, guid: e60887b5ea70ebd46bbf872096e90f7a, type: 2}
-  gameEventGameState: {fileID: 11400000, guid: fe36da3d638882f4e94adb06c58c6c16, type: 2}
   rowIncrease: 3
   colIncrease: 4
 --- !u!1001 &268016541652945186
@@ -463,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 268016540567207858, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4f00e7a7136b2f4bae82b1cb6dd60fd, type: 3}

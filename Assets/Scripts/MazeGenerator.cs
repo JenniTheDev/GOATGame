@@ -15,7 +15,6 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] private GameObject cellPrefab;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameStateController controller;
-    [SerializeField] private GameEventGameState gameEventGameState;
 
     [SerializeField] private int rowIncrease = 3;
     [SerializeField] private int colIncrease = 4;
@@ -27,7 +26,7 @@ public class MazeGenerator : MonoBehaviour
 
     public bool MazeGenerationCompleted { get; private set; } = false;
 
-    public void Start()
+    public void Awake()
     {
         controller.OnGameStateChanged += OnGameStateChanged;
     }
@@ -162,7 +161,7 @@ public class MazeGenerator : MonoBehaviour
             // yield return new WaitForSeconds(0.01f);
         }
         MazeGenerationCompleted = true;
-        gameEventGameState.Raise(GameState.Playing);
+        controller.RaiseGameStateChange(GameState.Playing);
     }
 
     public void IncreaseMaze()

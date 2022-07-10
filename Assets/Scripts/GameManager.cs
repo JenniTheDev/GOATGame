@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private IntVariable currentLevel;
     [SerializeField] private MazeGenerator mazeGenerator;
-    [SerializeField] private GameEventGameState onGameStateChange;
+
     [SerializeField] private GameStateController controller;
 
     public IntVariable CurrentLevel
@@ -17,7 +17,11 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         controller.OnGameStateChanged += OnGameStateChanged;
-        onGameStateChange.Raise(GameState.Loading);
+    }
+
+    public void Start()
+    {
+        controller.RaiseGameStateChange(GameState.Loading);
         Console.WriteLine("Game Loading");
     }
 

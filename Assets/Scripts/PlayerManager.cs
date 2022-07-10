@@ -10,9 +10,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private IntVariable startX;
     [SerializeField] private IntVariable startY;
 
-    public void Start()
+    public void Awake()
     {
         controller.OnGameStateChanged += OnGameStateChanged;
+        player.SetActive(false);
     }
 
     private void OnGameStateChanged(GameState toState)
@@ -31,6 +32,7 @@ public class PlayerManager : MonoBehaviour
         startPoint.x = startX;
         startPoint.y = startY;
         Instantiate(player, GetStartLocation(), Quaternion.identity);
+        player.SetActive(true);
     }
 
     private Vector2 GetStartLocation()
