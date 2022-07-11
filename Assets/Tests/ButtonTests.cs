@@ -8,9 +8,10 @@ public class ButtonTests
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void ButtonTestsSimplePasses()
+    public void CheckForButtons()
     {
-        // Use the Assert class to test conditions
+        var playButton = GameObject.Find("GoatButton Play");
+        Assert.IsNotNull(playButton, "Missing play button");
     }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
