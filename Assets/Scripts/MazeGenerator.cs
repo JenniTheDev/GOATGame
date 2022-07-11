@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Variables;
 using UnityEngine;
-using SOEvents.Events;
-using SOEvents.Listeners;
 using System;
 
 public class MazeGenerator : MonoBehaviour
@@ -45,8 +43,8 @@ public class MazeGenerator : MonoBehaviour
 
     public void StartMazeGeneration()
     {
-        startX = new IntVariable(-cols / 2);
-        startY = new IntVariable(-rows / 2);
+        startX.IntValue = -cols / 2;
+        startY.IntValue = -rows / 2;
 
         Maze = new Maze(rows, cols);
         mazeCells = new MazeCell[cols, rows];

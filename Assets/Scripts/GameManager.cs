@@ -1,8 +1,6 @@
 using UnityEngine;
 using Variables;
-using SOEvents.Events;
 using System;
-using SOEvents.Listeners;
 
 public class GameManager : MonoBehaviour
 {
